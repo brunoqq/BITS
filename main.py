@@ -77,7 +77,7 @@ async def on_message(message):
         else:
             await client.send_message(message.channel, 'Você não tem permissão para utilizar este comando.')
 
-    if message.content.startswith('!userinfo'):
+    if message.content.startswith('!user'):
         try:
             user = message.mentions[0]
             userjoinedat = str(user.joined_at).split('.', 1)[0]
@@ -232,7 +232,7 @@ async def on_member_remove(member):
 
     channel = client.get_channel('425369911267819521')
     serverchannel = member.server.default_channel
-    msg = "Xau xau {0}".format(member.mention)
+    msg = "Xau xau {0}".format(member.name)
     await client.send_message(channel, msg)
 
 client.run('NDI1Mzc5MTk2NzM5NTE4NDc1.DZGk2Q.4_M338-D-Ws1ecJZK-lmEOqgOw4')
