@@ -232,7 +232,7 @@ async def on_member_remove(member):
 
     channel = client.get_channel('425369911267819521')
     serverchannel = member.server.default_channel
-    msg = "Xau xau {0}".format(member.name)
+    msg = "{0} acabou de sair do servidor, alguém o resgate-o!".format(member.name)
     await client.send_message(channel, msg)
 
 client.run('NDI1Mzc5MTk2NzM5NTE4NDc1.DZM5OA.gu11m6STl6Iyrg2KzyLLOq_cf-s')
