@@ -167,6 +167,10 @@ async def on_message(message):
     if message.channel.id == ("425373271056449586"):
         await client.add_reaction(message, "✔")
         await client.add_reaction(message, "❌")
+        
+    if message.channel.id == ("426747801935020033"):
+        await client.add_reaction(message, "👍")
+        await client.add_reaction(message, "👎")
 
     if message.content.lower().startswith("!cargo"):
         embed1 = discord.Embed(
