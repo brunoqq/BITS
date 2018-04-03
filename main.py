@@ -6,6 +6,7 @@ import random
 import io
 import time
 import aiohttp
+import os
 
 client = discord.Client()
 
@@ -20,6 +21,13 @@ qntdd = int
 reaction_msg_stuff = {"role_msg_id": None, "role_msg_user_id": None, "r_role_msg_id": None, "r_role_msg_user_id": None}
 BOTCOLOR = 0x547e34
 version = "2.0.0"
+
+is_prod = os.environ.get('IS_HEROKU', None)
+if is_prod:
+    token = os.environ.get('TOKEN')
+else:
+    import secreto
+    token = secreto.token
 
 def toint(s):
     try:
@@ -385,4 +393,4 @@ async def on_member_remove(member):
     msg = "{0} acabou de sair do servidor, alguém o resgate-o!".format(member.name)
     await client.send_message(channel, msg)
 
-client.run('NDI1Mzc5MTk2NzM5NTE4NDc1.DZM5OA.gu11m6STl6Iyrg2KzyLLOq_cf-s')
+client.run(token)
