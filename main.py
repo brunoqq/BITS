@@ -86,6 +86,8 @@ async def on_message(message):
 
 #BOT AVISA O QUE FOI DITO
     if message.content.lower().startswith("!say"):
+       if not message.author.server_permissions.administrator:
+            return await client.send_message(message.channel, "❌ {} Você nao possui permissão para executar este comando!".format(message.author.mention)) 
         msg = message.content[5:2000]
         await client.send_message(message.channel, msg)
         await client.delete_message(message)
